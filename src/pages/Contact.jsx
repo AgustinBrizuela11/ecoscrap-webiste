@@ -164,8 +164,15 @@ export default function Contact() {
       </div>
 
       {/* Mapa */}
-      <div className="w-full h-96 bg-gray-200">
-        {/* Aquí irá el mapa de Google Maps */}
+      <div className="w-full">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3399.5724164977355!2d-60.70726555255683!3d-31.56334723631577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sar!4v1756813030326!5m2!1ses!2sar" 
+          className="w-full h-[450px]"
+          style={{border: 0}} 
+          allowFullScreen="" 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
   );
