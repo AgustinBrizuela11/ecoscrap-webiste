@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Eco Scrap</h3>
+            <h3 className="text-xl font-bold mb-4">Ecoscrap</h3>
             <p className="text-gray-400 mb-6">
               Especialistas en reciclaje y gestión de residuos metálicos, comprometidos con el medio ambiente.
             </p>
@@ -84,7 +84,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} Eco Scrap. Todos los derechos reservados.
+            © {new Date().getFullYear()} Ecoscrap. Todos los derechos reservados.
           </p>
         </div>
       </div>

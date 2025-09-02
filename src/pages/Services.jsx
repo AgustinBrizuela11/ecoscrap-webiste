@@ -1,16 +1,6 @@
 export default function Services() {
   const services = [
     {
-      title: "Compra de Metales",
-      description: "Compramos todo tipo de metales reciclables, incluyendo hierro, acero, aluminio, cobre, bronce y más. Ofrecemos precios competitivos y pesaje preciso.",
-      features: [
-        "Evaluación precisa del material",
-        "Precios competitivos",
-        "Pesaje certificado",
-        "Pago inmediato"
-      ]
-    },
-    {
       title: "Gestión de Residuos Industriales",
       description: "Ofrecemos soluciones integrales para la gestión de residuos industriales, garantizando un proceso eficiente y ambientalmente responsable.",
       features: [
