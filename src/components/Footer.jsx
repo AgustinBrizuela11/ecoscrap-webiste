@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
   const socialLinks = [
     { icon: FaFacebook, href: '#', label: 'Facebook' },
     { icon: FaInstagram, href: '#', label: 'Instagram' },
-    { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-    { icon: FaTwitter, href: '#', label: 'Twitter' },
     { icon: FaWhatsapp, href: '#', label: 'WhatsApp' },
   ];
 
