@@ -50,7 +50,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold mb-2">Teléfono</h3>
                 <p className="text-gray-600">
-                  [Tu Teléfono]
+                  3425786546
                 </p>
               </div>
 

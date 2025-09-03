@@ -73,7 +73,7 @@ export default function Footer() {
                 <span>Dirección: [Tu Dirección]</span>
               </li>
               <li className="flex items-center">
-                <span>Teléfono: [Tu Teléfono]</span>
+                <span>Teléfono: 3425786546</span>
               </li>
               <li className="flex items-center">
                 <span>Email: info@ecoscrap.com</span>

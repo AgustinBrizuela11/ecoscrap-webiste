@@ -1,21 +1,21 @@
 export default function Services() {
   const services = [
     {
-      title: "Gestión de Residuos Industriales",
-      description: "Ofrecemos soluciones integrales para la gestión de residuos industriales, garantizando un proceso eficiente y ambientalmente responsable.",
+      title: "Recoleccion de Residuos ferrosos",
+      description: "Ofrecemos soluciones integrales para la gestión de residuos industriales y urbanos, garantizando un proceso eficiente y ambientalmente responsable.",
       features: [
         "Recolección programada",
-        "Clasificación de materiales",
+        "Logistica optima y confiable",
         "Documentación y certificados",
         "Cumplimiento normativo"
       ]
     },
     {
-      title: "Demolición y Desarme",
-      description: "Servicios especializados de demolición y desarme industrial, con recuperación y reciclaje de materiales metálicos.",
+      title: "Compactacion de Residuos ferrosos",
+      description: "Nos movilizamos hasta donde estes y compactamos tus residuos ferrosos para optimizar espacio y facilitar su transporte.",
       features: [
         "Evaluación del proyecto",
-        "Desarme controlado",
+        "Compactacion con dimensiones para transporte y fundicion",
         "Recuperación de materiales",
         "Gestión de residuos"
       ]
