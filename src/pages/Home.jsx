@@ -11,7 +11,7 @@ export default function Home() {
             Bienvenidos a Ecoscrap
           </h1>
           <p className="text-xl md:text-2xl mb-8">
-            Expertos en reciclaje y gestión de residuos metálicos
+            Expertos en reciclaje y gestión de residuos ferrosos
           </p>
           <Link
             to="/contacto"
@@ -26,27 +26,48 @@ export default function Home() {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Service 1 */}
             <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-4">Compra de Metales</h3>
+              <h3 className="text-xl font-bold mb-4">Recolección de Residuos ferrosos</h3>
               <p className="text-gray-600 mb-4">
-                Compramos todo tipo de metales para su reciclaje y reutilización.
+                Ofrecemos soluciones integrales para la gestión de residuos industriales y urbanos, garantizando un proceso eficiente y ambientalmente responsable.
               </p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-sm text-gray-600">
+                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Recolección programada
+                </li>
+                <li className="flex items-center text-sm text-gray-600">
+                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Logística óptima y confiable
+                </li>
+              </ul>
             </div>
             {/* Service 2 */}
             <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-4">Gestión de Residuos</h3>
+              <h3 className="text-xl font-bold mb-4">Compactación de Residuos ferrosos</h3>
               <p className="text-gray-600 mb-4">
-                Ofrecemos soluciones integrales para la gestión de residuos industriales.
+                Nos movilizamos hasta donde estés y compactamos tus residuos ferrosos para optimizar espacio y facilitar su transporte.
               </p>
-            </div>
-            {/* Service 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold mb-4">Reciclaje Industrial</h3>
-              <p className="text-gray-600 mb-4">
-                Servicios especializados de reciclaje para empresas e industrias.
-              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center text-sm text-gray-600">
+                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Evaluación del proyecto
+                </li>
+                <li className="flex items-center text-sm text-gray-600">
+                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Compactación con dimensiones específicas
+                </li>
+              </ul>
             </div>
           </div>
         </div>
