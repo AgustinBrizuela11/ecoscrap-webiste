@@ -8,7 +8,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Bienvenidos a Ecoscrap
+            Bienvenidos a FerroScrap
           </h1>
           <p className="text-xl md:text-2xl mb-8">
             Expertos en reciclaje y gestión de residuos ferrosos

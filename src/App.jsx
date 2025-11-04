@@ -9,11 +9,13 @@ import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import './App.css';
+import { Toaster, toast } from 'sonner';
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <Toaster position='top-center' richColors/>
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow mt-16">

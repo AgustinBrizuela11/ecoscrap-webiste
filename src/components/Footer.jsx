@@ -14,9 +14,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Ecoscrap</h3>
-            <p className="text-gray-400 mb-6">
-              Especialistas en reciclaje y gestión de residuos metálicos, comprometidos con el medio ambiente.
+            <h3 className="text-xl font-bold mb-4">FerroScrap</h3>
+            <p className="text-gray-400 mb-4">
+              Especialistas en reciclaje y gestión de residuos ferrosos, comprometidos con el medio ambiente.
             </p>
             {/* Social Media Icons */}
             <div className="flex space-x-4">
@@ -70,13 +70,13 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Contacto</h3>
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-center">
-                <span>Dirección: [Tu Dirección]</span>
+                <span>Intersección de Avenida Peñaloza y Facundo Quiroga</span>
               </li>
               <li className="flex items-center">
-                <span>Teléfono: 3425786546</span>
+                <span>+54 342 578-6546</span>
               </li>
               <li className="flex items-center">
-                <span>Email: info@ecoscrap.com</span>
+                <span>ferroscrapoficial@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -84,7 +84,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-400">
-            © {new Date().getFullYear()} Ecoscrap. Todos los derechos reservados.
+            © {new Date().getFullYear()} FerroScrap. Todos los derechos reservados.
           </p>
         </div>
       </div>

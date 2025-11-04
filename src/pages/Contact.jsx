@@ -1,18 +1,63 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { toast } from 'sonner';
 
 export default function Contact() {
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    time: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí irá la lógica para enviar el formulario
-    console.log('Formulario enviado:', formData);
+    setIsLoading(true);
+
+    // Formatear la fecha y hora en zona horaria Argentina
+    const timeArg = new Date().toLocaleString('es-AR', {
+      timeZone: 'America/Argentina/Buenos_Aires',
+      dateStyle: 'full',
+      timeStyle: 'short'
+    });
+
+    try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        time: timeArg
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      // Limpiar el formulario después del envío exitoso
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        time: ''
+      });
+
+      toast.success('¡Mensaje enviado con éxito!');
+    } catch (error) {
+      console.error('Error al enviar el mensaje:', error);
+      toast.error('Error al enviar el mensaje. Por favor, intente nuevamente.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -38,26 +83,26 @@ export default function Contact() {
           {/* Información de Contacto */}
           <div>
             <h2 className="text-2xl font-bold text-primary mb-6">Información de Contacto</h2>
-            
+
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold mb-2">Ubicación</h3>
                 <p className="text-gray-600">
-                  [Tu Dirección]
+                  Interseccion de Avenida Peñaloza y Facundo Quiroga
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold mb-2">Teléfono</h3>
                 <p className="text-gray-600">
-                  3425786546
+                  +543425786546
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold mb-2">Email</h3>
                 <p className="text-gray-600">
-                  info@ecoscrap.com
+                  ferroscrapoficial@gmail.com
                 </p>
               </div>
 
@@ -65,7 +110,7 @@ export default function Contact() {
                 <h3 className="text-lg font-semibold mb-2">Horario de Atención</h3>
                 <p className="text-gray-600">
                   Lunes a Viernes: 8:00 AM - 6:00 PM<br />
-                  Sábados: 8:00 AM - 1:00 PM
+                  Sábados: 8:00 AM - 12:00 PM
                 </p>
               </div>
             </div>
@@ -74,7 +119,7 @@ export default function Contact() {
           {/* Formulario de Contacto */}
           <div>
             <h2 className="text-2xl font-bold text-primary mb-6">Envíanos un Mensaje</h2>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -86,7 +131,7 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary"
+                  className="form-input mt-1 block w-full border-2 p-2 rounded-lg border-gray-300 focus:border-primary-500"
                   required
                 />
               </div>
@@ -101,7 +146,7 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary"
+                  className="form-input mt-1 block w-full border-2 p-2 rounded-lg border-gray-300 focus:border-primary-500"
                   required
                 />
               </div>
@@ -116,7 +161,7 @@ export default function Contact() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary"
+                  className="form-input mt-1 block w-full border-2 p-2 rounded-lg border-gray-300 focus:border-primary-500"
                 />
               </div>
 
@@ -130,7 +175,7 @@ export default function Contact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary"
+                  className="form-input mt-1 block w-full border-2 p-2 rounded-lg border-gray-300 focus:border-primary-500"
                   required
                 />
               </div>
@@ -145,7 +190,7 @@ export default function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary"
+                  className="form-textarea mt-1 block w-full border-2 p-2 rounded-lg border-gray-300 focus:border-primary-500"
                   required
                 />
               </div>
@@ -153,9 +198,11 @@ export default function Contact() {
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg transition duration-300"
+                  disabled={isLoading}
+                  className={`w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg transition duration-300 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''
+                    }`}
                 >
-                  Enviar Mensaje
+                  {isLoading ? 'Enviando...' : 'Enviar Mensaje'}
                 </button>
               </div>
             </form>
@@ -166,13 +213,13 @@ export default function Contact() {
       {/* Mapa */}
       <div className="w-full">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3399.5724164977355!2d-60.70726555255683!3d-31.56334723631577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sar!4v1756813030326!5m2!1ses!2sar" 
-          className="w-full h-[450px]"
-          style={{border: 0}} 
-          allowFullScreen="" 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3399.563698815656!2d-60.710471924626475!3d-31.5635864033824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDMzJzQ4LjkiUyA2MMKwNDInMjguNCJX!5e0!3m2!1ses!2sar!4v1762226987464!5m2!1ses!2sar" 
+        width="100%" 
+        height="450" 
+        style={{border:0}}
+        allowFullScreen="" 
+        loading="lazy" 
+        referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   );
