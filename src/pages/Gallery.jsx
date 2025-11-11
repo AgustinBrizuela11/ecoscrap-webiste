@@ -1,12 +1,23 @@
+import { useEffect, useState } from 'react';
+
 export default function Gallery() {
-  const images = [
-    { id: 1, title: 'Planta de Reciclaje' },
-    { id: 2, title: 'Proceso de Clasificación' },
-    { id: 3, title: 'Maquinaria Especializada' },
-    { id: 4, title: 'Equipo de Trabajo' },
-    { id: 5, title: 'Materiales Reciclados' },
-    { id: 6, title: 'Transporte y Logística' },
-  ];
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    // Cargar imágenes desde src/assets/fotos usando Vite
+    const modules = import.meta.glob('../assets/fotos/*.{png,jpg,jpeg,webp,svg}', { eager: true, as: 'url' });
+    let imgs = Object.values(modules || {});
+    // excluir el logo (si existe) y archivos muy pequeños si se quisiera
+    imgs = imgs.filter((u) => !u.includes('logo_con_letras'));
+
+    // mezclar y tomar hasta 9 imágenes
+    for (let i = imgs.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [imgs[i], imgs[j]] = [imgs[j], imgs[i]];
+    }
+    const selected = imgs.slice(0, Math.min(9, imgs.length));
+    setImages(selected);
+  }, []);
 
   return (
     <div>
@@ -19,19 +30,20 @@ export default function Gallery() {
 
       {/* Galería */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {images.map((image) => (
-            <div key={image.id} className="relative group">
-              <div className="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
-                {/* Aquí irá la imagen real */}
-                <div className="w-full h-64 bg-gray-300 rounded-lg"></div>
+        {images.length === 0 ? (
+          <p className="text-center text-gray-500">Cargando imágenes...</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {images.map((src, idx) => (
+              <div key={src} className="group relative overflow-hidden rounded-lg bg-gray-100">
+                <img src={src} alt={`Foto ${idx + 1}`} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-white font-semibold">Foto {idx + 1}</span>
+                </div>
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                <h3 className="text-white text-xl font-bold">{image.title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

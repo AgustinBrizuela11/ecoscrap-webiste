@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import logo from '../assets/fotos/logo_con_letras.png';
 
 const navigation = [
   { name: 'Inicio', to: '/' },
@@ -16,9 +17,9 @@ export default function Header() {
   return (
     <header className="fixed w-full bg-white shadow-md z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold text-primary">FerroScrap</span>
+        <div className="flex lg:flex-1 items-center">
+          <Link to="/" className="-m-1.5 p-1.5 flex items-center">
+            <img src={logo} alt="FerroScrap" className="h-10 w-auto" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -52,7 +53,7 @@ export default function Header() {
         <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link to="/" className="-m-1.5 p-1.5">
-              <span className="text-2xl font-bold text-primary">FerroScrap</span>
+              <img src={logo} alt="FerroScrap" className="h-10 w-auto" />
             </Link>
             <button
               type="button"
