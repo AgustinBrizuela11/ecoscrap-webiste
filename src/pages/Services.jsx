@@ -39,8 +39,12 @@ export default function Services() {
               <div key={index} className={`flex flex-col md:flex-row gap-8 items-center ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}>
-                <div className="w-full md:w-1/2 bg-gray-200 h-64 rounded-lg">
-                  {/* Aquí irá una imagen representativa del servicio */}
+                <div className="w-full md:w-1/2">
+                  <img 
+                    src={`/src/assets/fotos/${index === 0 ? 'WhatsApp Image 2025-10-06 at 17.04.26 (1).webp' : 'WhatsApp Image 2025-10-06 at 16.43.53 (2).webp'}`}
+                    alt={service.title}
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
                 </div>
                 <div className="w-full md:w-1/2">
                   <h2 className="text-2xl font-bold text-primary mb-4">{service.title}</h2>

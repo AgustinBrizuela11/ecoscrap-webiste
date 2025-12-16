@@ -14,8 +14,12 @@ export default function About() {
           <h2 className="text-3xl font-bold text-center mb-12">Nuestra Trayectoria</h2>
           <div className="space-y-8">
             <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="w-full md:w-1/2 bg-gray-200 h-64 rounded-lg">
-                {/* Aquí irá una imagen */}
+              <div className="w-full md:w-1/2">
+                <img 
+                  src="/src/assets/fotos/WhatsApp Image 2025-10-06 at 16.43.53 (1).webp" 
+                  alt="Experiencia y Profesionalismo" 
+                  className="w-full h-64 object-cover rounded-lg"
+                />
               </div>
               <div className="w-full md:w-1/2">
                 <h3 className="text-2xl font-bold text-primary mb-4">Experiencia y Profesionalismo</h3>

@@ -2,7 +2,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppButton() {
   // Número de WhatsApp (formato para wa.me: código de país + número, sin + ni espacios)
-  const phoneNumber = '5493425981228';
+  const phoneNumber = '5493425786546';
   const message = 'Hola, quisiera obtener más información sobre sus servicios de compactacion.';
 
   const handleClick = () => {
